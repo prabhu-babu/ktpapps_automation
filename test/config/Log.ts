@@ -2,9 +2,6 @@ import winston from "winston";
 import path from "path";
 import moment from "moment-timezone";
 import { Env as ENV } from "./Env";
-import {Helper} from "../util/Helper"
-
-const helper = new Helper();
 
 const currentDir = __dirname;
 // Go one level above (back to 'src')
