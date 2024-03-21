@@ -1,9 +1,11 @@
-import { defineConfig, devices } from "@playwright/test";
+import { defineConfig } from "@playwright/test";
 import dotenv from "dotenv";
 import path from "path";
 import { Env } from "./test/config/Env";
 
-dotenv.config({ path: path.resolve(__dirname, "test/env", `.env.${process.env.ENV}`) });
+dotenv.config({
+  path: path.resolve(__dirname, "test/env", `.env.${process.env.ENV}`),
+});
 console.log("Scripts running in : ", Env.ENV);
 
 /**

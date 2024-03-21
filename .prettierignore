@@ -3,6 +3,7 @@ node_modules/
 test-results/
 playwright-report
 summary.json
+README.md
 
 # IDE - VSCode
 .vscode/*

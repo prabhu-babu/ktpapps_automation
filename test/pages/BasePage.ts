@@ -46,7 +46,7 @@ export default class BasePage {
       await element.highlight();
       await element.clear();
       await element.fill(value);
-      log.info(fieldName + " filled with the value '" + value +"'");
+      log.info(fieldName + " filled with the value '" + value + "'");
     } catch (error) {
       log.error(`Error filling the field : ` + fieldName + `. Element : ${element} . ${error}`);
     }
@@ -61,6 +61,6 @@ export default class BasePage {
       log.error(`Error getting text for the field : ` + fieldName + `. Element : ${element} . ${error}`);
     }
     log.info("Value '" + element.innerText() + "' read from the field " + fieldName);
-    return await element.innerText();
+    return element.innerText();
   }
 }
