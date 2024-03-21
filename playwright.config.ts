@@ -1,10 +1,10 @@
 import { defineConfig } from "@playwright/test";
 import dotenv from "dotenv";
 import path from "path";
-import { Env } from "./test/config/Env";
+import { Env } from "./src/globals/Env";
 
 dotenv.config({
-  path: path.resolve(__dirname, "test/env", `.env.${process.env.ENV}`),
+  path: path.resolve(__dirname, "src/env", `.env.${process.env.ENV}`),
 });
 console.log("Scripts running in : ", Env.ENV);
 
@@ -19,7 +19,7 @@ console.log("Scripts running in : ", Env.ENV);
  */
 export default defineConfig({
   timeout: 30 * 1000,
-  testDir: "./test/tests",
+  testDir: "./src/web/tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
 
@@ -30,7 +30,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  outputDir: "test/reports/tests",
+  outputDir: "src/reports",
   reporter: [["html"], ["list"]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {

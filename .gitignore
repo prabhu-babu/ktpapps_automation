@@ -6,5 +6,5 @@ node_modules/
 .vscode/
 code/
 .DS_Store
-/test/reports/
-/test/logs/
+/src/reports/
+/src/logs/

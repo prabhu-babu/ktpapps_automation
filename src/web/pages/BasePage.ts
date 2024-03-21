@@ -1,5 +1,5 @@
 import { Locator, Page, expect } from "@playwright/test";
-import log from "../config/Log";
+import log from "../../config/Log";
 
 export default class BasePage {
   readonly page: Page;

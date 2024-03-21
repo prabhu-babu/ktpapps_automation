@@ -1,14 +1,14 @@
 import winston from "winston";
 import path from "path";
 import moment from "moment-timezone";
-import { Env as ENV } from "./Env";
+import { Env as ENV } from "../globals/Env";
 
 const currentDir = __dirname;
 // Go one level above (back to 'src')
 const srcDir = path.resolve(currentDir, "..");
 
 // Change to 'logging' folder
-const loggingDir = path.resolve(srcDir, "../test/logs");
+const loggingDir = path.resolve(srcDir, "../src/logs");
 
 // Function to format log entries with timestamp and timezone
 const customFormat = winston.format.printf(({ level, message, timestamp }) => {

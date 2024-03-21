@@ -1,6 +1,6 @@
 import { test as baseTest } from "@playwright/test";
-import { Env } from "../config/Env";
-import log from "../config/Log";
+import { Env } from "../../globals/Env";
+import log from "../../config/Log";
 import { ClassPage } from "../pages/goldmine/ClassPage";
 import BasePage from "../pages/BasePage";
 
@@ -9,7 +9,7 @@ type Pages = {
 };
 
 type Data = {
-  testData: string;
+  testData: any;
 };
 
 const test = baseTest.extend<Pages, Data>({
