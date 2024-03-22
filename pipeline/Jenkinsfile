@@ -9,12 +9,12 @@ pipeline {
         //         }
         //     }
         // }
-        stage('Build') {
-            steps {
-                // Build the Docker image
-                sh 'docker-compose build'
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         // Build the Docker image
+        //         sh 'docker-compose build'
+        //     }
+        // }
         stage('Test') {
             steps {
                 // Run the Playwright tests
