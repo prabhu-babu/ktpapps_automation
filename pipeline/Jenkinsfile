@@ -22,13 +22,13 @@ pipeline {
             steps {
               echo "PATH is: $PATH"
                 // Run the Playwright tests
-                sh '/usr/bin/docker-compose up --build'
+                sh 'docker-compose up --build'
             }
         }
         stage('Tear Down') {
             steps {
                 // Down docker images
-                sh '/usr/bin/ docker-compose down --remove-orphans'
+                sh 'docker-compose down --remove-orphans'
             }
         }
     }
