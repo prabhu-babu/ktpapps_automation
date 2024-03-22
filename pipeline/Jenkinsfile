@@ -1,14 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Setup') {
-            steps {
-                script {
-                    properties([parameters([choice(choices: ['QA', 'PROD']),
-                    choice(choices: ['Goldmine', 'Palladium'])])])
-                }
-            }
-        }
+        // stage('Setup') {
+        //     steps {
+        //         script {
+        //             properties([parameters([choice(choices: ['QA', 'PROD']),
+        //             choice(choices: ['Goldmine', 'Palladium'])])])
+        //         }
+        //     }
+        // }
         stage('Build') {
             steps {
                 // Build the Docker image
