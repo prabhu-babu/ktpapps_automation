@@ -4,4 +4,4 @@ services:
     image: playwright-tests:latest
     build: .
     container_name: playwright
-    command: npm run test
+    command: npm run ${ENV:-test}
