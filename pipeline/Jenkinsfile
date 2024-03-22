@@ -22,7 +22,8 @@ pipeline {
             steps {
               echo "PATH is: $PATH"
                 // Run the Playwright tests
-                sh 'docker-compose up --build'
+                // sh 'docker-compose up --build'
+                sh 'docker --version'
             }
         }
         stage('Tear Down') {
