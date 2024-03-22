@@ -1,29 +1,30 @@
 pipeline {
-  agent any
-  stages {
-    stage('Setup') {
-        steps {
-            script {
-                properties([parameters([choice(choices: ['QA', 'PROD']),
-                                                            choice(choices: ['Goldmine', 'Palladium'])])])
+    agent any
+    stages {
+        stage('Setup') {
+            steps {
+                script {
+                    properties([parameters([choice(choices: ['QA', 'PROD']),
+                    choice(choices: ['Goldmine', 'Palladium'])])])
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                // Build the Docker image
+                sh 'docker-compose build'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Run the Playwright tests
+                sh 'ENV=prod docker-compose up --build'
+            }
+        }
+        post {
+            always {
+                sh 'docker-compose down --remove-orphans'
             }
         }
     }
-    stage('Build') {
-      steps {
-        // Build the Docker image
-        sh 'docker-compose build'
-      }
-    }
-    stage('Test') {
-      steps {
-        // Run the Playwright tests
-        sh 'ENV=prod docker-compose up --build'
-      }
-    }
-    post { 
-        always {
-            sh 'docker-compose down --remove-orphans'
-        }
-  }
 }
