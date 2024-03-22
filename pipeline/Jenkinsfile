@@ -21,8 +21,9 @@ pipeline {
                 sh 'ENV=prod docker-compose up --build'
             }
         }
-        post {
-            always {
+        stage('Tear Down') {
+            steps {
+                // Down docker images
                 sh 'docker-compose down --remove-orphans'
             }
         }
