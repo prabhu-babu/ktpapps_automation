@@ -9,23 +9,23 @@ pipeline {
         //         }
         //     }
         // }
-        // stage('Build') {
-        //     steps {
-        //         // Build the Docker image
-        //         sh 'docker-compose build'
-        //     }
-        // }
+        stage('Build') {
+            steps {
+                // Build the Docker image
+                sh 'docker build --no-cache --tag playwright-tests:latest .'
+            }
+        }
         stage('Test') {
             steps {
                 // Run the Playwright tests
-                sh 'docker compose up'
+                sh 'docker run playwright-tests:latest'
                 // sh 'docker --version'
             }
         }
         stage('Tear Down') {
             steps {
                 // Down docker images
-                sh 'docker compose down'
+                sh 'docker rmi -f playwright-tests:latest'
             }
         }
     }
