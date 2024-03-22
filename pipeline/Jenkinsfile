@@ -1,7 +1,4 @@
 pipeline {
-  environment {
-    PATH = "$PATH:/usr/local/bin"
-  }
     agent any
     stages {
         // stage('Setup') {
@@ -20,16 +17,15 @@ pipeline {
         // }
         stage('Test') {
             steps {
-              echo "PATH is: $PATH"
                 // Run the Playwright tests
-                sh 'docker compose up --no-cache'
+                sh 'docker compose up'
                 // sh 'docker --version'
             }
         }
         stage('Tear Down') {
             steps {
                 // Down docker images
-                sh 'docker compose down --remove-orphans'
+                sh 'docker compose down'
             }
         }
     }
