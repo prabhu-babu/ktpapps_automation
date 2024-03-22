@@ -10,3 +10,4 @@ COPY . .
 CMD ["npm", "test"]
 
 # docker-compose up --build
+# ENV=prod docker-compose up --build
